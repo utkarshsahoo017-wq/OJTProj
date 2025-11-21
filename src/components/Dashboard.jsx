@@ -6,7 +6,7 @@ import { Wallet, TrendingUp, TrendingDown, Receipt } from 'lucide-react'
 
 function Dashboard() {
   return (
-    <div className='mt-20'>
+    <div className='mt-15'>
       <div className="head text-white font-bold text-3xl">
         Dashboard
         <div className="subhead text-slate-500 text-xs">
