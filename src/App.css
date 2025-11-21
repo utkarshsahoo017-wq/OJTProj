@@ -3,3 +3,15 @@
 input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1);  
 }
+
+.active span{
+   color: black;
+}
+
+.active li{
+    background-color: white;
+}
+
+.active img{
+    filter: invert(0);
+}
