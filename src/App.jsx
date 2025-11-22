@@ -12,31 +12,112 @@ function App() {
     {
       path: "/",
       element: <><Navbar />
-      <div className="flex mx-75 my-5 w-full">
-        <Sidebar />
-        <Dashboard />
-      </div></>
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Dashboard />
+        </div></>
     },
     {
       path: "/transactions",
       element: <><Navbar />
-      <div className="flex mx-75 my-5 w-full">
-        <Sidebar />
-        <Transactions />
-      </div></>
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Transactions />
+        </div></>
     },
     {
       path: "/analytics",
       element: <><Navbar />
-      <div className="flex mx-75 my-5 w-full">
-        <Sidebar />
-        <Analytics />
-      </div></>
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Analytics />
+        </div></>
+    },
+    {
+      path: "/reports/trialBalance",
+      element: <>
+        <Navbar />
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Analytics />
+        </div>
+      </>
+    },
+    {
+      path: "/reports/incomeStatement",
+      element: <>
+        <Navbar />
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Analytics />
+        </div>
+      </>
+    },
+    {
+      path: "/reports/balanceSheet",
+      element: <>
+        <Navbar />
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Analytics />
+        </div>
+      </>
+    },
+    {
+      path: "/reports/cashFlow",
+      element: <>
+        <Navbar />
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Analytics />
+        </div>
+      </>
+    },
+    {
+      path: "/reports/Expense",
+      element: <>
+        <Navbar />
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Analytics />
+        </div>
+      </>
+    },
+    {
+      path: "/reports/revenue",
+      element: <>
+        <Navbar />
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Analytics />
+        </div>
+      </>
+    },
+    {
+      path: "/reports/awLed",
+      element: <>
+        <Navbar />
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Analytics />
+        </div>
+      </>
+    },
+    {
+      path: "/reports/CR",
+      element: <>
+        <Navbar />
+        <div className="flex mx-75 my-5 w-full">
+          <Sidebar />
+          <Analytics />
+        </div>
+      </>
     }
+
   ])
   return (
     <>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </>
   )
 }
