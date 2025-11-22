@@ -16,7 +16,7 @@ function ChartIncomeVsExpense() {
             {
                 label: "Income",
                 data: [10000, 12000, 11000, 10000, 15000, 25000],
-                backgroundColor: "#167939"
+                backgroundColor: "#2e994a"
             },
             {
                 label: "Expenses",

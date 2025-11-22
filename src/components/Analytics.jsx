@@ -1,6 +1,7 @@
 import React from 'react'
 import Average from './Average'
 import { TrendingUp, TrendingDown, ChartColumn } from 'lucide-react'
+import PieCard from './PieCard'
 import ChartIncomeVsExpense from './ChartIncomeVsExpense'
 
 function Analytics() {
@@ -19,6 +20,9 @@ function Analytics() {
             </div>
             <div className="chart w-3/4">
                < ChartIncomeVsExpense />
+            </div>
+            <div className="piecard">
+                <PieCard />
             </div>
         </div>
     )

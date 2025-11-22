@@ -11,7 +11,7 @@ function MonthSummary() {
           <div className="IH text-slate-500">
             Income
           </div>
-          <div className="value text-3xl text-[#21aa6b]">
+          <div className="value text-3xl text-[#3bbf5e]">
             ₹6,000.0
           </div>
         </div>
@@ -27,7 +27,7 @@ function MonthSummary() {
            <div className="NH text-slate-500">
             Net Balance
           </div>
-          <div className="value text-3xl text-[#21aa6b]">
+          <div className="value text-3xl text-[#3bbf5e]">
             ₹5,485.75
           </div> 
         </div>
