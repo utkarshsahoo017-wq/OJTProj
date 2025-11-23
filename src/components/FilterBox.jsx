@@ -3,7 +3,7 @@ import { Calendar } from 'lucide-react'
 
 function FilterBox() {
     return (
-        <div className='w-full mt-7'>
+        <div className='w-full mt-7 mb-7'>
             <div className="bg-[#111827] border border-gray-500 text-white p-4 w-full rounded-2xl flex flex-col gap-6">
                 <div className="h flex text-sm text-gray-400 items-center gap-2 w-full">
                     <Calendar size={15} />Data range

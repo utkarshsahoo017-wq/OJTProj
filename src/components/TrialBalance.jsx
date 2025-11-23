@@ -1,6 +1,7 @@
 import React from 'react'
 import FilterBox from './FilterBox'
 import { FileText, Sheet, Printer } from 'lucide-react'
+import TrialBalanceTable from './TrialBalanceTable'
 
 function TrialBalance() {
     return (
@@ -25,6 +26,9 @@ function TrialBalance() {
                 </div>
             </div>
             <FilterBox />
+            <div>
+                <TrialBalanceTable />
+            </div>
         </div>
     )
 }
