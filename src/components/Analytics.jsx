@@ -14,9 +14,9 @@ function Analytics() {
                 </div>
             </div>
             <div className="avgCont mt-5 flex gap-3 w-3/4">
-               <Average Icon={TrendingUp} iconColor={'green'} Amount={'₹1833.33'} Heading={'Average Icome'} subhead={'Per month(last 6 months)'} />
-               <Average Icon={TrendingDown} iconColor={'red'} Amount={'₹127.38'} Heading={'Average Expense'} subhead={'Per month(last 6 months)'} />
-               <Average Icon={ChartColumn} iconColor={'blue'} Amount={'93.1%'} Heading={'Savings Rate'} subhead={'Of total income'} />
+               <Average Icon={TrendingUp} iconColor={'green'} Amount={'₹1833.33'} Heading={'Average Icome'} subhead={'Per month(last 6 months)'} className={"w-1/3"}/>
+               <Average Icon={TrendingDown} iconColor={'red'} Amount={'₹127.38'} Heading={'Average Expense'} subhead={'Per month(last 6 months)'} className={"w-1/3"}/>
+               <Average Icon={ChartColumn} iconColor={'blue'} Amount={'93.1%'} Heading={'Savings Rate'} subhead={'Of total income'} className={"w-1/3"}/>
             </div>
             <div className="chart w-3/4">
                < ChartIncomeVsExpense />

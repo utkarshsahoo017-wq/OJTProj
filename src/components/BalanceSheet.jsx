@@ -14,9 +14,9 @@ function BalanceSheet() {
                 </div>
             </div>
             <div className='flex gap-2 w-full'>
-                <Average Heading={"Total assets"} Amount={"₹2,00,235.75"} Icon={Wallet} iconColor={"blue"} subhead={"What you own"} />
-                <Average Heading={"Total liabilities"} Amount={"₹1,75,000.00"} Icon={CreditCard} iconColor={"red"} subhead={"What you owe"} />
-                <Average2 Heading={"Total Equity"} Amount={"₹25,235.75"} Icon={TrendingUp} iconColor={"green"} subhead={"Net Worth"}/>
+                <Average Heading={"Total assets"} Amount={"₹2,00,235.75"} Icon={Wallet} iconColor={"blue"} subhead={"What you own"} className={"w-1/3"} />
+                <Average Heading={"Total liabilities"} Amount={"₹1,75,000.00"} Icon={CreditCard} iconColor={"red"} subhead={"What you owe"} className={"w-1/3"} />
+                <Average2 Heading={"Total Equity"} Amount={"₹25,235.75"} Icon={TrendingUp} iconColor={"green"} subhead={"Net Worth"} className={"w-1/3"}/>
             </div>
             <BalanceSheetTable />
         </div>

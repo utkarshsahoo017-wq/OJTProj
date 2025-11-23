@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Average({ Heading, Amount, Icon, iconColor, subhead }) {
+function Average({ Heading, Amount, Icon, iconColor, subhead, className }) {
     return (
-        <div className='bg-green-500/10 border border-green-500 p-5 text-white rounded-xl w-1/3 font-semibold'>
+        <div className={`bg-green-500/10 border border-green-500 p-5 text-white rounded-xl font-semibold ${className}`}>
             <div className="h mb-5 flex justify-between">
                 <div className="h3">
                     {Heading}
