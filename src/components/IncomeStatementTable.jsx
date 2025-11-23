@@ -77,7 +77,7 @@ function IncomeStatement() {
                     Net Profit
                     <div className="text-gray-500 text-sm">Profit margin: 91.43%</div>
                 </div>
-                <div className="text-green-400 font-bold text-2xl">₹5,485.75</div>
+                <div className="text-green-400 font-semibold text-2xl">₹5,485.75</div>
             </div>
         </div>
     );
