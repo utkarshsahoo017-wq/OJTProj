@@ -11,6 +11,7 @@ import IncomeStatement from './components/IncomeStatement'
 import BalanceSheet from './components/BalanceSheet'
 import CashFlow from './components/CashFlow'
 import ExpenseReport from './components/ExpenseReport'
+import RevenueReport from './components/RevenueReport'
 
 function App() {
   const router = createBrowserRouter([
@@ -94,7 +95,7 @@ function App() {
         <Navbar />
         <div className="flex mx-75 my-5 w-full">
           <Sidebar />
-          <Analytics />
+          <RevenueReport />
         </div>
       </>
     },
