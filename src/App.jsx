@@ -16,13 +16,18 @@ import RevenueReport from './components/RevenueReport'
 import AccountWiseLedger from './components/AccountWiseLedger'
 import CustomReport from './components/CustomReport'
 import Settings from './components/Settings'
+import LandingPage from './components/LandingPage'
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <LandingPage />
+    },
+    {
+      path: "/dashboard",
       element: <><Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <Dashboard />
         </div></>
@@ -30,7 +35,7 @@ function App() {
     {
       path: "/transactions",
       element: <><Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <Transactions />
         </div></>
@@ -38,7 +43,7 @@ function App() {
     {
       path: "/analytics",
       element: <><Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <Analytics />
         </div></>
@@ -47,7 +52,7 @@ function App() {
       path: "/reports/trialBalance",
       element: <>
         <Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <TrialBalance />
         </div>
@@ -57,7 +62,7 @@ function App() {
       path: "/reports/incomeStatement",
       element: <>
         <Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <IncomeStatement />
         </div>
@@ -67,7 +72,7 @@ function App() {
       path: "/reports/balanceSheet",
       element: <>
         <Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <BalanceSheet />
         </div>
@@ -77,7 +82,7 @@ function App() {
       path: "/reports/cashFlow",
       element: <>
         <Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <CashFlow />
         </div>
@@ -87,7 +92,7 @@ function App() {
       path: "/reports/Expense",
       element: <>
         <Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <ExpenseReport />
         </div>
@@ -97,7 +102,7 @@ function App() {
       path: "/reports/revenue",
       element: <>
         <Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <RevenueReport />
         </div>
@@ -107,7 +112,7 @@ function App() {
       path: "/reports/awLed",
       element: <>
         <Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <AccountWiseLedger />
         </div>
@@ -117,7 +122,7 @@ function App() {
       path: "/reports/CR",
       element: <>
         <Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <CustomReport />
         </div>
@@ -127,7 +132,7 @@ function App() {
       path: "/settings",
       element: <>
         <Navbar />
-        <div className="flex mx-75 my-5 w-full">
+        <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <Settings />
         </div>
