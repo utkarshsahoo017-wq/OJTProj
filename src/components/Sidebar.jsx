@@ -13,7 +13,7 @@ function Sidebar() {
   return (
     <div className='fixed top-0 left-0 h-screen w-60 bg-[#111727] mt-15 border-r border-gray-700'>
       <ul className="flex flex-col text-white p-5 text-xl gap-2 [&_li]:hover:bg-gray-700 [&_li]:p-2 [&_li]:rounded-2xl [&_li]:hover:cursor-pointer">
-        <NavLink to="/dasboard" className={(e) => e.isActive ? "active" : ""}><li className='flex items-center gap-2'><img src={dashboard} alt="" className='invert w-4 h-4' /><span>Dashboard</span></li></NavLink>
+        <NavLink to="/dashboard" className={(e) => e.isActive ? "active" : ""}><li className='flex items-center gap-2'><img src={dashboard} alt="" className='invert w-4 h-4' /><span>Dashboard</span></li></NavLink>
         <NavLink to="/transactions" className={(e) => e.isActive ? "active" : ""}><li className='flex items-center gap-2'><img src={transaction} alt="" className='invert w-4 h-4' /><span>Transactions</span></li></NavLink>
         <NavLink to="/analytics" className={(e) => e.isActive ? "active" : ""}><li className='flex items-center gap-2'><img src={analytics} alt="" className='invert w-4 h-4' /><span>Analytics</span></li></NavLink>
         <li onClick={() => setIsReportsOpen(!isReportsOpen)} className='flex items-center gap-2 justify-between'>

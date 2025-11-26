@@ -2,6 +2,7 @@ import React from 'react'
 import bg from "../assets/LandingBG.png";
 import Logo from "../assets/logo.png"
 import { BriefcaseBusiness } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 function LoginPage() {
     return (
@@ -18,7 +19,7 @@ function LoginPage() {
                         <input type="password" placeholder='Enter password' className='text-white text-lg border border-gray-500 rounded-full px-4 py-1 placeholder:font-light font-light w-3/4' />
                     </div>
                     <div className="buttons flex flex-col items-center text-xl gap-2">
-                        <button className='bg-blue-500 rounded-full w-1/3 border-2 border-blue-300 py-1 hover:cursor-pointer hover:shadow-[0px_0px_5px_white] transition'>Login</button>
+                        <NavLink to="/dashboard" className='bg-blue-500 rounded-full w-1/3 border-2 border-blue-300 py-1 hover:cursor-pointer hover:shadow-[0px_0px_5px_white] transition text-center'><button>Login</button></NavLink>
                         <span className='text-white text-xs font-light hover:cursor-pointer'>Don't have an account? Signup here</span>
                     </div>
                 </div>
