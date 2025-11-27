@@ -13,7 +13,7 @@ function LandingPage() {
           <img src={Logo} alt="" className="w-40 h-auto m-3" />
           <div className="flex gap-2 mx-2">
             <NavLink to='/loginPage'><button className='text-white bg-blue-500 px-4 py-1 rounded-xl text-lg font-semibold hover:cursor-pointer hover:scale-110 transition'>Log In</button></NavLink>
-            <button className='bg-white px-4 py-1 rounded-xl text-lg font-semibold hover:cursor-pointer hover:scale-110 transition'>Sign up</button>
+            <NavLink to='/signupPage'><button className='bg-white px-4 py-1 rounded-xl text-lg font-semibold hover:cursor-pointer hover:scale-110 transition'>Sign up</button></NavLink>
           </div>
         </div>
         <div className="flex justify-center h-full">
@@ -24,7 +24,7 @@ function LandingPage() {
               Take control, grow smarter, and plan your future with confidence.
             </div>
             <div className="flex justify-center">
-              <button className="text-white bg-blue-500 text-xl flex items-center gap-1 p-2 rounded-xl font-semibold m-6 hover:cursor-pointer hover:-translate-y-0.5 transition hover:shadow-[0px_0px_10px_white]">Get Started <ArrowRight size={20} /></button>
+              <NavLink to='/signupPage'><button className="text-white bg-blue-500 text-xl flex items-center gap-1 p-2 rounded-xl font-semibold m-6 hover:cursor-pointer hover:-translate-y-0.5 transition hover:shadow-[0px_0px_10px_white]">Get Started <ArrowRight size={20} /></button></NavLink>
             </div>
           </div>
         </div>

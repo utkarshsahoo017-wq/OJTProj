@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-import './index.css' 
+import './index.css'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
@@ -18,6 +18,7 @@ import CustomReport from './components/CustomReport'
 import Settings from './components/Settings'
 import LandingPage from './components/LandingPage'
 import LoginPage from './components/LoginPage'
+import SignupPage from './components/SignupPage'
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +29,10 @@ function App() {
     {
       path: "/loginPage",
       element: <LoginPage />
+    },
+    {
+      path: "/signupPage",
+      element: <SignupPage />
     },
     {
       path: "/dashboard",
@@ -142,8 +147,7 @@ function App() {
           <Settings />
         </div>
       </>
-    }
-
+    },
   ])
   return (
     <>
