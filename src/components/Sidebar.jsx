@@ -30,20 +30,6 @@ function Sidebar() {
 
         {isReportsOpen && (
           <div className="ml-3 flex flex-col gap-2 text-sm w-full ">
-            <NavLink to="/reports/trialBalance" className={(e) => e.isActive ? "active" : ""}>
-              {({ isActive }) => (
-                <div className={`flex w-full rounded ${isActive ? "bg-white text-black" : "hover:bg-gray-700"
-                  }`}>
-                  <span
-                    className={'cursor-pointer px-2 py-1 rounded flex gap-1'}
-                  >
-                    <Scale color={isActive ? "black" : "white"} size={20} />
-                    Trial Balance
-                  </span>
-                </div>
-              )}
-            </NavLink>
-
             <NavLink to="/reports/incomeStatement" className={(e) => e.isActive ? "active" : ""}>
               {({ isActive }) => (
                 <div className={`flex w-full rounded ${isActive ? "bg-white text-black" : "hover:bg-gray-700"
@@ -53,20 +39,6 @@ function Sidebar() {
                   >
                     <DollarSign color={isActive ? "black" : "white"} size={20} />
                     Income Statement(P&L)
-                  </span>
-                </div>
-              )}
-            </NavLink>
-
-            <NavLink to="/reports/balanceSheet" className={(e) => e.isActive ? "active" : ""}>
-              {({ isActive }) => (
-                <div className={`flex w-full rounded ${isActive ? "bg-white text-black" : "hover:bg-gray-700"
-                  }`}>
-                  <span
-                    className={'cursor-pointer px-2 py-1 rounded flex gap-1'}
-                  >
-                    <Wallet color={isActive ? "black" : "white"} size={20} />
-                    Balance Sheet
                   </span>
                 </div>
               )}

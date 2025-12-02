@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import FilterBox from './FilterBox'
 import Average from './Average'
 import Average2 from './Average2'
@@ -6,6 +7,7 @@ import { CircleArrowUp, CircleArrowDown } from 'lucide-react'
 import CashFlowTable from './CashFlowTable'
 
 function CashFlow() {
+
     return (
         <div className='mt-15 w-3/4 flex flex-col gap-4'>
             <div className="head text-white text-3xl">

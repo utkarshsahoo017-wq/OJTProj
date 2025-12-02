@@ -7,9 +7,7 @@ import Dashboard from './components/Dashboard'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Transactions from './components/Transactions'
 import Analytics from './components/Analytics'
-import TrialBalance from './components/TrialBalance'
 import IncomeStatement from './components/IncomeStatement'
-import BalanceSheet from './components/BalanceSheet'
 import CashFlow from './components/CashFlow'
 import ExpenseReport from './components/ExpenseReport'
 import RevenueReport from './components/RevenueReport'
@@ -59,32 +57,12 @@ function App() {
         </div></>
     },
     {
-      path: "/reports/trialBalance",
-      element: <>
-        <Navbar />
-        <div className="flex mx-70 my-5 w-full">
-          <Sidebar />
-          <TrialBalance />
-        </div>
-      </>
-    },
-    {
       path: "/reports/incomeStatement",
       element: <>
         <Navbar />
         <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <IncomeStatement />
-        </div>
-      </>
-    },
-    {
-      path: "/reports/balanceSheet",
-      element: <>
-        <Navbar />
-        <div className="flex mx-70 my-5 w-full">
-          <Sidebar />
-          <BalanceSheet />
         </div>
       </>
     },

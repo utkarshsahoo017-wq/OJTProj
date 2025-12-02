@@ -15,8 +15,8 @@ function PieCard() {
     "#ff0066", "#eeaaee", "#55bf3b", "#df5353", "#7798BF"
   ];
 
-  const getColors = (count) => {
-    return palette.slice(0, count);
+  const getColors = (count, offset = 0) => {
+    return palette.slice(offset, offset+count);
   };
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function PieCard() {
           <PieChart
             labels={incomeData.labels}
             rawdata={incomeData.rawdata}
-            colors={getColors(incomeData.labels.length)} />
+            colors={getColors(incomeData.labels.length, 0)} />
         </div>
       </div>
       <div className='bg-black border border-gray-600 p-5 text-white rounded-xl w-3/8'>
@@ -51,7 +51,7 @@ function PieCard() {
           Expense by Category
         </div>
         <div className="chartCont">
-          <PieChart labels={expenseData.labels} rawdata={expenseData.rawdata} colors={getColors(expenseData.labels.length)} />
+          <PieChart labels={expenseData.labels} rawdata={expenseData.rawdata} colors={getColors(expenseData.labels.length, 10)} />
         </div>
       </div>
     </div>
