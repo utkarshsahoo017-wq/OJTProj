@@ -43,19 +43,6 @@ function Sidebar() {
                 </div>
               )}
             </NavLink>
-            <NavLink to="/reports/cashFlow" className={(e) => e.isActive ? "active" : ""}>
-              {({ isActive }) => (
-                <div className={`flex w-full rounded ${isActive ? "bg-white text-black" : "hover:bg-gray-700"
-                  }`}>
-                  <span
-                    className={'cursor-pointer px-2 py-1 rounded flex gap-1'}
-                  >
-                    <TrendingUp color={isActive ? "black" : "white"} size={20} />
-                    Cash Flow Statement
-                  </span>
-                </div>
-              )}
-            </NavLink>
             <NavLink to="/reports/Expense" className={(e) => e.isActive ? "active" : ""}>
               {({ isActive }) => (
                 <div className={`flex w-full rounded ${isActive ? "bg-white text-black" : "hover:bg-gray-700"

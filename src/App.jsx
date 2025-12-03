@@ -8,7 +8,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Transactions from './components/Transactions'
 import Analytics from './components/Analytics'
 import IncomeStatement from './components/IncomeStatement'
-import CashFlow from './components/CashFlow'
 import ExpenseReport from './components/ExpenseReport'
 import RevenueReport from './components/RevenueReport'
 import AccountWiseLedger from './components/AccountWiseLedger'
@@ -63,16 +62,6 @@ function App() {
         <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <IncomeStatement />
-        </div>
-      </>
-    },
-    {
-      path: "/reports/cashFlow",
-      element: <>
-        <Navbar />
-        <div className="flex mx-70 my-5 w-full">
-          <Sidebar />
-          <CashFlow />
         </div>
       </>
     },
