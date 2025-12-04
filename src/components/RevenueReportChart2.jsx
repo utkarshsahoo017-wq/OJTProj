@@ -9,9 +9,17 @@ import { Bar } from "react-chartjs-2";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip);
 
-export default function RevenueByCategory() {
-  const categories = ["Salary", "Freelance", "Investment"];
-  const values = [10000, 800, 200];
+export default function RevenueByCategory({ categoryBreakdown }) {
+  if (!categoryBreakdown || Object.keys(categoryBreakdown).length === 0) {
+    return (
+      <div className="w-full bg-[#0f172a] p-6 rounded-xl text-white">
+        No revenue records to show.
+      </div>
+    );
+  }
+
+  const categories = Object.keys(categoryBreakdown);
+  const values = Object.values(categoryBreakdown);
 
   const total = values.reduce((a, b) => a + b, 0);
 
@@ -23,11 +31,10 @@ export default function RevenueByCategory() {
         data: values,
         backgroundColor: "#22c55e",
         borderRadius: 10,
-
-        barPercentage: 1.0,       
-        categoryPercentage: 0.75, 
-        barThickness: 270,        
-        maxBarThickness: 300,     
+        barPercentage: 1.0,
+        categoryPercentage: 0.75,
+        barThickness: 270,
+        maxBarThickness: 300,
       },
     ],
   };
@@ -69,9 +76,7 @@ export default function RevenueByCategory() {
     <div className="w-full bg-[#0f172a] p-6 rounded-xl text-white space-y-6">
       <div>
         <h2 className="text-lg font-semibold">Revenue by Category</h2>
-        <p className="text-sm text-gray-400">
-          Period: 23/05/2025 – 23/11/2025
-        </p>
+        <p className="text-sm text-gray-400">Last 6 months</p>
       </div>
 
       <div className="w-full h-80">
@@ -81,7 +86,6 @@ export default function RevenueByCategory() {
       <div className="space-y-6 mt-4">
         {categories.map((cat, i) => {
           const percent = ((values[i] / total) * 100).toFixed(1);
-
           return (
             <div key={cat} className="space-y-1">
               <div className="flex justify-between text-sm text-gray-300">
