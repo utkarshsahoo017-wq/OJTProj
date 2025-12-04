@@ -14,13 +14,13 @@ function FilterBox({ onFilter }) {
         const start = new Date();
         start.setDate(start.getDate() - days);
 
-        setStartDate(format(start));
-        setEndDate(format(end));
+        const s = format(start);
+        const e = format(end);
 
-        onFilter({
-            start: format(start),
-            end: format(end)
-        });
+        setStartDate(s);
+        setEndDate(e);
+
+        onFilter({ start: s, end: e });
     }
 
     function applyCustomFilter() {
@@ -32,7 +32,7 @@ function FilterBox({ onFilter }) {
         <div className='w-full mt-7'>
             <div className="bg-[#111827] border border-gray-500 text-white p-4 rounded-2xl flex flex-col gap-6">
                 <div className="text-sm text-gray-400 flex items-center gap-2">
-                    <Calendar size={15} /> Data range
+                    <Calendar size={15} /> Date range
                 </div>
 
                 <div className="flex gap-3 text-sm">

@@ -6,19 +6,38 @@ import fetchUserData from '../utils/datafetch'
 import { getCategoryData } from '../utils/getCategoryData'
 
 function ExpenseReport() {
-  const [normalData, setNormalData] = useState([])
-  const [categoryData, setCategoryData] = useState({ labels: [], rawdata: [] })
+  const [fullData, setFullData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [categoryData, setCategoryData] = useState({ labels: [], rawdata: [] });
 
   useEffect(() => {
-    async function fetchData() {
-      const userData = await fetchUserData()
-      setNormalData(userData)
-
-      const category = await getCategoryData(userData, 'debit')
-      setCategoryData(category)
+    async function loadData() {
+      const userData = await fetchUserData();
+      setFullData(userData);
+      setFilteredData(userData);
     }
-    fetchData()
-  }, [])
+    loadData();
+  }, []);
+
+  useEffect(() => {
+    async function updateCategory() {
+      const cat = await getCategoryData(filteredData, 'debit');
+      setCategoryData(cat);
+    }
+    updateCategory();
+  }, [filteredData]);
+
+  function handleFilter({ start, end }) {
+    const startDate = new Date(start);
+    const endDate = new Date(end);
+
+    const filtered = fullData.filter((item) => {
+      const d = new Date(item.date);
+      return d >= startDate && d <= endDate;
+    });
+
+    setFilteredData(filtered);
+  }
 
   return (
     <div className='mt-15 w-3/4 flex flex-col gap-3'>
@@ -29,7 +48,8 @@ function ExpenseReport() {
         </div>
       </div>
 
-      <FilterBox />
+      <FilterBox onFilter={handleFilter} />
+
       <ExpenseReportPieCard categoryData={categoryData} />
       <ExpenseRankData
         labels={categoryData.labels}
@@ -39,4 +59,4 @@ function ExpenseReport() {
   )
 }
 
-export default ExpenseReport
+export default ExpenseReport;
