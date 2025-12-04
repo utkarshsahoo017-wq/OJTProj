@@ -10,8 +10,6 @@ import Analytics from './components/Analytics'
 import IncomeStatement from './components/IncomeStatement'
 import ExpenseReport from './components/ExpenseReport'
 import RevenueReport from './components/RevenueReport'
-import AccountWiseLedger from './components/AccountWiseLedger'
-import CustomReport from './components/CustomReport'
 import Settings from './components/Settings'
 import LandingPage from './components/LandingPage'
 import LoginPage from './components/LoginPage'
@@ -82,26 +80,6 @@ function App() {
         <div className="flex mx-70 my-5 w-full">
           <Sidebar />
           <RevenueReport />
-        </div>
-      </>
-    },
-    {
-      path: "/reports/awLed",
-      element: <>
-        <Navbar />
-        <div className="flex mx-70 my-5 w-full">
-          <Sidebar />
-          <AccountWiseLedger />
-        </div>
-      </>
-    },
-    {
-      path: "/reports/CR",
-      element: <>
-        <Navbar />
-        <div className="flex mx-70 my-5 w-full">
-          <Sidebar />
-          <CustomReport />
         </div>
       </>
     },

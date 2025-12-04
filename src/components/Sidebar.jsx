@@ -69,32 +69,6 @@ function Sidebar() {
                 </div>
               )}
             </NavLink>
-            <NavLink to="/reports/awLed" className={(e) => e.isActive ? "active" : ""}>
-              {({ isActive }) => (
-                <div className={`flex w-full rounded ${isActive ? "bg-white text-black" : "hover:bg-gray-700"
-                  }`}>
-                  <span
-                    className={'cursor-pointer px-2 py-1 rounded flex gap-1'}
-                  >
-                    <BookOpen color={isActive ? "black" : "white"} size={20} />
-                    Account-wise Ledger
-                  </span>
-                </div>
-              )}
-            </NavLink>
-            <NavLink to="/reports/CR" className={(e) => e.isActive ? "active" : ""}>
-              {({ isActive }) => (
-                <div className={`flex w-full rounded ${isActive ? "bg-white text-black" : "hover:bg-gray-700"
-                  }`}>
-                  <span
-                    className={'cursor-pointer px-2 py-1 rounded flex gap-1'}
-                  >
-                    <Calendar color={isActive ? "black" : "white"} size={20} />
-                    Custom report
-                  </span>
-                </div>
-              )}
-            </NavLink>
           </div>
         )}
         <NavLink to="/settings" className={(e) => e.isActive ? "active" : ""}><li className='flex items-center gap-2'><img src={setting} alt="" className='invert w-4 h-4' /><span>Settings</span></li></NavLink>
