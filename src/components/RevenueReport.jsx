@@ -6,11 +6,13 @@ import RevenueReportChart1 from './RevenueReportChart1'
 import RevenueReportChart2 from './RevenueReportChart2'
 
 function RevenueReport() {
-  const [data, setData] = useState([])
-  const [avgIncome, setAvgIncome] = useState(0)
-  const [monthlyData, setMonthlyData] = useState({})
-  const [totalIncome, setTotalIncome] = useState(0)
-  const [incomeSources, setIncomeSources] = useState(0)
+  const [allData, setAllData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+
+  const [avgIncome, setAvgIncome] = useState(0);
+  const [monthlyData, setMonthlyData] = useState({});
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [incomeSources, setIncomeSources] = useState(0);
   const [categoryBreakdown, setCategoryBreakdown] = useState({});
 
   function groupTransactionsByMonth(transactions) {
@@ -28,82 +30,87 @@ function RevenueReport() {
 
       if (element.type === "Credit") {
         monthlySummary[key].income += Number(element.amount)
-      }
-      else if (element.type === "Debit") {
+      } else if (element.type === "Debit") {
         monthlySummary[key].expense += Number(element.amount)
       }
 
       monthlySummary[key].transactions.push(element)
     });
+
     return monthlySummary
   }
 
   useEffect(() => {
-    async function getData() {
-      const response = await fetchUserData()
-      setData(response)
+    async function loadData() {
+      const response = await fetchUserData();
+      setAllData(response);
+      setFilteredData(response); 
     }
-    getData()
+    loadData();
+  }, []);
 
-  }, [])
+  function handleFilter({ start, end }) {
+    const s = new Date(start);
+    const e = new Date(end);
+
+    const filtered = allData.filter(item => {
+      const d = new Date(item.date);
+      return d >= s && d <= e;
+    });
+
+    setFilteredData(filtered);
+  }
 
   useEffect(() => {
-    if (data.length > 0) {
-      const response = groupTransactionsByMonth(data);
-      setMonthlyData(response);
+    if (filteredData.length === 0) {
+      setMonthlyData({});
+      return;
     }
-  }, [data]);
+
+    const grouped = groupTransactionsByMonth(filteredData);
+    setMonthlyData(grouped);
+
+  }, [filteredData]);
 
   useEffect(() => {
-    if (!monthlyData || Object.keys(monthlyData).length === 0) return;
+    if (!monthlyData || Object.keys(monthlyData).length === 0) {
+      setAvgIncome(0);
+      setTotalIncome(0);
+      setIncomeSources(0);
+      return;
+    }
+
+    const total = filteredData
+      .filter(item => item.type === "Credit")
+      .reduce((a, b) => a + Number(b.amount), 0);
+
+    setTotalIncome(total);
+
+    const uniqueSources = new Set(
+      filteredData.filter(item => item.type === "Credit").map(i => i.category)
+    );
+    setIncomeSources(uniqueSources.size);
 
     const sortedMonths = Object.keys(monthlyData)
       .sort((a, b) => new Date(b) - new Date(a))
       .slice(0, 6);
 
-    const incomes = sortedMonths.map(key => monthlyData[key].income);
+    const incomes = sortedMonths.map(k => monthlyData[k].income);
+    const avg = incomes.reduce((a, b) => a + b, 0) / incomes.length;
 
-    const avgInc = incomes.reduce((a, b) => a + b, 0) / incomes.length;
-
-    const uniqueSources = new Set(
-      data.filter(item => item.type === "Credit").map(item => item.category)
-    )
-
-    setIncomeSources(uniqueSources.size)
-
-    setAvgIncome(avgInc);
-    setTotalIncome(data.filter(item => item.type === "Credit").reduce((acc, item) => acc + Number(item.amount), 0))
-  }, [monthlyData]);
-
-  useEffect(() => {
-    if (data.length === 0) return;
+    setAvgIncome(isNaN(avg) ? 0 : avg);
 
     const breakdown = {};
-
-    data.forEach(item => {
+    filteredData.forEach(item => {
       if (item.type === "Credit") {
-        const cat = item.category || "Uncategorized";
+        const cat = item.category || "Other";
         breakdown[cat] = (breakdown[cat] || 0) + Number(item.amount);
       }
     });
 
     setCategoryBreakdown(breakdown);
-  }, [data]);
 
-  useEffect(() => {
-    if (data.length === 0) return;
-
-    const breakdown = {};
-
-    data.forEach(item => {
-      if (item.type === "Credit") {
-        const cat = item.category || "Uncategorized";
-        breakdown[cat] = (breakdown[cat] || 0) + Number(item.amount);
-      }
-    });
-
-    setCategoryBreakdown(breakdown);
-  }, [data]);
+  }, [monthlyData, filteredData]);
 
   return (
     <div className='mt-15 flex flex-col gap-3 w-3/4'>
@@ -113,17 +120,19 @@ function RevenueReport() {
           Income sources and growth trends
         </div>
       </div>
-      <FilterBox />
-      <div className="flex gap-2">
 
-        <Average Heading={"Total Revenue"} Amount={`₹${totalIncome}`} subhead={"Selected period"} className={"w-1/3"} />
-        <Average Heading={"Average Monthly"} Amount={`₹${avgIncome}`} subhead={"Per Month"} className={"w-1/3"} />
-        <Average Heading={"Income Sources"} Amount={`${incomeSources}`} subhead={"Different categories"} className={"w-1/3"} />
+      <FilterBox onFilter={handleFilter} />
+
+      <div className="flex gap-2">
+        <Average Heading="Total Revenue" Amount={`₹${totalIncome}`} subhead="Selected Period" className="w-1/3" />
+        <Average Heading="Average Monthly" Amount={`₹${avgIncome}`} subhead="Avg of Selected Months" className="w-1/3" />
+        <Average Heading="Income Sources" Amount={`${incomeSources}`} subhead="Categories" className="w-1/3" />
       </div>
+
       <RevenueReportChart1 monthlyData={monthlyData} />
       <RevenueReportChart2 categoryBreakdown={categoryBreakdown} />
     </div>
   )
 }
 
-export default RevenueReport
+export default RevenueReport;
